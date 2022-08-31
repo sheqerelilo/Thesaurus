@@ -1,0 +1,30 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+//local variable declarations
+string fileName;
+char letter;
+//reading the fileName and letter from user
+cin>>fileName>>letter;
+//opens the fileName with .txt file in read mode
+ifstream infile(fileName+".txt");
+//variable for file reading
+string words;
+int count=0;
+while(!infile.eof()) {
+//reading each word of input file in words string
+infile>>words;
+//if the first letter of string words is equal to letter then display the words and increment count by 1
+if(words[0]==letter)
+{
+count++;
+cout<<words<<"\n";
+}
+}
+//if count is 0 then display the following message
+if(count==0)
+cout<<"No synonyms for "<<fileName<<" begin with "<<letter<<"."<<endl;
+
+}
